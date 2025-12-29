@@ -1,23 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="fr"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currency Converter</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Convertisseur de Devises</title> <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://flagcdn.com">
 </head>
 <body>
-    <!-- ====== NAVBAR ====== -->
     <nav class="navbar">
         <div class="logo">Monnaies</div>
         <ul class="nav-links">
-            <li><a href="nouv.html">Accueil</a></li>
-            <li><a href="index.html">Convertisseur</a></li>
+            <li><a href="index.html">Accueil</a></li> 
+            <li><a href="convertisseur.html">Convertisseur</a></li>
             <li><a href="monnaies.html">Monnaie</a></li>
         </ul>
     </nav>
-    <!-- Dark Mode Toggle -->
     <div class="toggle-container">
         <span>🌞</span>
         <label class="switch">
@@ -28,35 +24,28 @@
     </div>
 
     <div class="container">
-        <h1>Currency Converter</h1>
+        <h1>Convertisseur de Devises</h1> 
 
         <div class="converter-box">
 
             <div class="input-group">
-                <label>Amount</label>
-                <input type="number" id="amount" placeholder="Enter amount" />
-            </div>
+                <label>Montant</label> <input type="number" id="amount" placeholder="Entrez le montant" /> </div>
 
             <div class="input-group">
-                <label>From</label>
-                <div class="select-flag-box">
-                    <img id="fromFlag" class="flag" src="" alt="">
+                <label>De</label> <div class="select-flag-box">
+                    <img id="fromFlag" class="flag" src="" alt="Drapeau de la devise source">
                     <select id="fromCurrency"></select>
                 </div>
             </div>
 
             <div class="input-group">
-                <label>To</label>
-                <div class="select-flag-box">
-                    <img id="toFlag" class="flag" src="" alt="">
+                <label>À</label> <div class="select-flag-box">
+                    <img id="toFlag" class="flag" src="" alt="Drapeau de la devise destination">
                     <select id="toCurrency"></select>
                 </div>
             </div>
 
-            <button onclick="convert()">Convert</button>
-
-            <!-- Loading Animation -->
-            <div id="loading" class="loader hidden"></div>
+            <button onclick="convert()">Convertir</button> <div id="loading" class="loader hidden"></div>
 
             <h2 id="result"></h2>
         </div>
@@ -65,3 +54,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
