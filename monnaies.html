@@ -7,35 +7,95 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <nav class="navbar">
         <div class="logo">Monnaies</div>
         <ul class="nav-links">
-            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html">Accueil</a></li> 
             <li><a href="convertisseur.html">Convertisseur</a></li>
             <li><a href="monnaies.html" class="active">Monnaie</a></li>
         </ul>
     </nav>
 
-    <section class="container">
-        <h1>Galerie des Monnaies du Monde</h1>
+    <div class="container">
+        <div class="galerie-header">
+            <h1>Galerie des Monnaies du Monde</h1>
+            <div class="filters">
+                <select id="continentFilter" onchange="filtrerContinents()">
+                    <option value="tous">Tous les continents</option>
+                    <option value="afrique">Afrique</option>
+                    <option value="europe">Europe</option>
+                    <option value="asie">Asie</option>
+                    <option value="amerique">Amérique</option>
+                </select>
+            </div>
+        </div>
 
-        <label for="continent-select">Choisir un continent :</label>
-        <select id="continent-select">
-            <option value="">-- Sélectionner --</option>
-            <option value="europe">Europe</option>
-            <option value="asie">Asie</option>
-            <option value="afrique">Afrique</option>
-            <option value="amerique">Amérique</option>
-            <option value="oceanie">Océanie</option>
-        </select>
+        <div class="galerie-grid" id="galerieGrid">
+            <div class="monnaie-card" data-continent="afrique">
+                <img src="https://flagcdn.com/w320/tn.png" alt="Tunisie">
+                <h3>Tunisie</h3>
+                <p>Dinar Tunisien (TND)</p>
+            </div>
+            <div class="monnaie-card" data-continent="afrique">
+                <img src="https://flagcdn.com/w320/ma.png" alt="Maroc">
+                <h3>Maroc</h3>
+                <p>Dirham Marocain (MAD)</p>
+            </div>
+            <div class="monnaie-card" data-continent="afrique">
+                <img src="https://flagcdn.com/w320/dz.png" alt="Algérie">
+                <h3>Algérie</h3>
+                <p>Dinar Algérien (DZD)</p>
+            </div>
 
-        <button id="sort-btn">Trier A → Z</button>
+            <div class="monnaie-card" data-continent="europe">
+                <img src="https://flagcdn.com/w320/fr.png" alt="France">
+                <h3>France</h3>
+                <p>Euro (EUR)</p>
+            </div>
+            <div class="monnaie-card" data-continent="europe">
+                <img src="https://flagcdn.com/w320/de.png" alt="Allemagne">
+                <h3>Allemagne</h3>
+                <p>Euro (EUR)</p>
+            </div>
 
-        <div id="gallery" class="gallery"></div>
-    </section>
+            <div class="monnaie-card" data-continent="asie">
+                <img src="https://flagcdn.com/w320/jp.png" alt="Japon">
+                <h3>Japon</h3>
+                <p>Yen (JPY)</p>
+            </div>
 
-    <script src="monnaies.js"></script>
+            <div class="monnaie-card" data-continent="amerique">
+                <img src="https://flagcdn.com/w320/us.png" alt="USA">
+                <h3>USA</h3>
+                <p>Dollar US (USD)</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 - Projet Monnaies du Monde</p>
+            <p>Réalisé par :</p>
+            <p><strong>Ben Fadhel Meha GROUPE 1 BI</strong></p>
+            <p><strong>Souissi Farah GROUPE 2 BI</strong></p>
+        </div>
+    </footer>
+
+    <script>
+        function filtrerContinents() {
+            const filter = document.getElementById("continentFilter").value;
+            const cards = document.querySelectorAll(".monnaie-card");
+
+            cards.forEach(card => {
+                if (filter === "tous" || card.getAttribute("data-continent") === filter) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
+
 
