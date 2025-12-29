@@ -574,3 +574,33 @@ input:checked + .slider:before {
 .hero p {
     color: white !important;
 }
+
+
+/* ===================== */
+/* STYLE DU FOOTER       */
+/* ===================== */
+.main-footer {
+    background-color: #1a1a1a; /* Fond très sombre */
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 60px; /* Espace avec la vidéo */
+    border-top: 3px solid #d4af37; /* Ligne dorée en haut */
+}
+
+.footer-content p {
+    margin: 5px 0; /* Espace réduit entre les lignes */
+    font-size: 0.95em;
+    letter-spacing: 0.5px;
+}
+
+.footer-content strong {
+    color: #d4af37; /* Applique la couleur dorée à tout ce qui est en gras */
+    font-weight: bold;
+}
+
+/* --- Adaptation Mode Sombre --- */
+.dark .main-footer {
+    background-color: #000000;
+    border-top-color: #00aaff; /* La ligne devient bleue en mode sombre */
+}
