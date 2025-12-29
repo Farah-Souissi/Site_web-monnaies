@@ -652,3 +652,60 @@ input:checked + .slider:before {
     border: 1px solid #d4af37;
 }
 
+
+
+/* Animation "Pièce de monnaie" sur les cartes */
+.monnaie-card {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    perspective: 1000px;
+}
+
+.monnaie-card:hover {
+    transform: rotateY(10deg) scale(1.05);
+    border-color: #d4af37; /* Couleur Or */
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+}
+
+/* Effet de reflet brillant qui passe sur la carte */
+.coin-effect {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.monnaie-card:hover .coin-effect {
+    top: 0;
+    left: 0;
+}
+
+/* Style du bouton Musée */
+.museum-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #d4af37;
+    color: black;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.museum-link:hover {
+    background-color: #b8962d;
+    color: white;
+}
+
+/* Icône Musée avant le texte */
+.museum-link::before {
+    margin-right: 5px;
+}
