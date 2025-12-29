@@ -19,7 +19,7 @@
     <div class="container">
         <div class="galerie-header">
             <h1>🏛️ Musée Numérique des Monnaies</h1>
-            <p>Explorez l'histoire et le patrimoine numismatique à travers le monde.</p>
+            <p>Découvrez l'histoire de la numismatique et les musées officiels.</p>
             <div class="filters">
                 <select id="continentFilter" onchange="filtrerContinents()">
                     <option value="tous">Tous les continents</option>
@@ -37,7 +37,7 @@
                 <img src="https://flagcdn.com/w320/tn.png" alt="Tunisie">
                 <h3>Tunisie</h3>
                 <p>Dinar Tunisien (TND)</p>
-                <a href="https://www.bct.gov.tn/bct/siteprod/musee.jsp" target="_blank" class="museum-link">Visiter le Musée de la BCT</a>
+                <a href="https://fr.wikipedia.org/wiki/Mus%C3%A9e_de_la_monnaie_(Tunis)" target="_blank" class="museum-link">🏛️ Musée de la Monnaie (Tunis)</a>
             </div>
 
             <div class="monnaie-card" data-continent="afrique">
@@ -45,7 +45,7 @@
                 <img src="https://flagcdn.com/w320/ma.png" alt="Maroc">
                 <h3>Maroc</h3>
                 <p>Dirham Marocain (MAD)</p>
-                <a href="https://www.bkam.ma/Musee" target="_blank" class="museum-link">Musée de Bank Al-Maghrib</a>
+                <a href="https://www.bkam.ma/Musee" target="_blank" class="museum-link">🏛️ Musée de Bank Al-Maghrib</a>
             </div>
 
             <div class="monnaie-card" data-continent="afrique">
@@ -53,7 +53,7 @@
                 <img src="https://flagcdn.com/w320/dz.png" alt="Algérie">
                 <h3>Algérie</h3>
                 <p>Dinar Algérien (DZD)</p>
-                <a href="https://www.bank-of-algeria.dz/" target="_blank" class="museum-link">Banque d'Algérie</a>
+                <a href="https://www.bank-of-algeria.dz/" target="_blank" class="museum-link">🏛️ Banque d'Algérie</a>
             </div>
 
             <div class="monnaie-card" data-continent="europe">
@@ -61,7 +61,7 @@
                 <img src="https://flagcdn.com/w320/fr.png" alt="France">
                 <h3>France</h3>
                 <p>Euro (EUR)</p>
-                <a href="https://www.citeco.fr/" target="_blank" class="museum-link">Cité de l'Économie</a>
+                <a href="https://www.citeco.fr/" target="_blank" class="museum-link">🏛️ Cité de l'Économie (Paris)</a>
             </div>
 
             <div class="monnaie-card" data-continent="europe">
@@ -69,7 +69,7 @@
                 <img src="https://flagcdn.com/w320/es.png" alt="Espagne">
                 <h3>Espagne</h3>
                 <p>Euro (EUR)</p>
-                <a href="https://www.museocasadelamoneda.es/" target="_blank" class="museum-link">Casa de la Moneda</a>
+                <a href="https://www.museocasadelamoneda.es/" target="_blank" class="museum-link">🏛️ Casa de la Moneda</a>
             </div>
 
             <div class="monnaie-card" data-continent="asie">
@@ -77,7 +77,7 @@
                 <img src="https://flagcdn.com/w320/jp.png" alt="Japon">
                 <h3>Japon</h3>
                 <p>Yen (JPY)</p>
-                <a href="https://www.imes.boj.or.jp/cm/english/" target="_blank" class="museum-link">Currency Museum (BoJ)</a>
+                <a href="https://www.imes.boj.or.jp/cm/english/" target="_blank" class="museum-link">🏛️ Currency Museum (Tokyo)</a>
             </div>
 
             <div class="monnaie-card" data-continent="amerique">
@@ -85,7 +85,7 @@
                 <img src="https://flagcdn.com/w320/us.png" alt="USA">
                 <h3>USA</h3>
                 <p>Dollar US (USD)</p>
-                <a href="https://americanhistory.si.edu/collections/subjects/numismatics" target="_blank" class="museum-link">Smithsonian Institution</a>
+                <a href="https://americanhistory.si.edu/collections/subjects/numismatics" target="_blank" class="museum-link">🏛️ Smithsonian Institution</a>
             </div>
         </div>
     </div>
@@ -100,6 +100,7 @@
     </footer>
 
     <script>
+        // Fonction pour filtrer les cartes par continent
         function filtrerContinents() {
             const filter = document.getElementById("continentFilter").value;
             const cards = document.querySelectorAll(".monnaie-card");
@@ -115,6 +116,7 @@
     </script>
 </body>
 </html>
+
 
 
 
