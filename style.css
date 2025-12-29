@@ -604,3 +604,51 @@ input:checked + .slider:before {
     background-color: #000000;
     border-top-color: #00aaff; /* La ligne devient bleue en mode sombre */
 }
+
+
+
+/* Style de la Galerie */
+.galerie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.monnaie-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.monnaie-card:hover {
+    transform: translateY(-5px);
+    border: 1px solid #d4af37;
+}
+
+.monnaie-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+}
+
+.dark .monnaie-card {
+    background: #222;
+    color: white;
+}
+
+.galerie-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#continentFilter {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #d4af37;
+}
+
