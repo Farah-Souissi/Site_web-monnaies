@@ -1,4 +1,4 @@
-/* -------- BASIC STYLES -------- */
+/* -------- BASIC STYLES & RESET -------- */
 
 * {
     margin: 0;
@@ -8,18 +8,10 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #f3f3f3;
-    transition: 0.3s ease;
-}
-
-.container {
-    width: 90%;
-    max-width: 450px;
-    margin: 60px auto;
-    background: white;
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    /* La couleur de fond par défaut est claire */
+    background: #f3f3f3; 
+    color: #333; /* Couleur de texte par défaut */
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 h1 {
@@ -27,6 +19,120 @@ h1 {
     margin-bottom: 25px;
     color: #333;
 }
+
+/* -------------------------------------- */
+/* ======== BARRE DE NAVIGATION (NAVBAR) ======== */
+/* -------------------------------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #1a1a1a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+    padding-bottom: 2px;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active { /* Style pour la page active */
+    color: #00aaff;
+    border-bottom: 2px solid #00aaff;
+}
+
+/* -------------------------------------- */
+/* ======== CONTENEURS GÉNÉRAUX ======== */
+/* -------------------------------------- */
+
+.container {
+    /* Style général pour les conteneurs (utilisé à la fois pour le convertisseur et la galerie) */
+    width: 90%;
+    margin: 40px auto; 
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    background: white; /* Couleur de fond par défaut */
+    text-align: center; /* Utilisé dans la page Monnaies */
+    transition: 0.3s ease;
+}
+
+/* Style spécifique pour le conteneur du convertisseur (plus petit) */
+#page-converter .container { 
+    max-width: 450px;
+    margin-top: 60px; /* Un peu plus d'espace en haut */
+}
+
+/* -------------------------------------- */
+/* ======== ÉLÉMENTS DE FORMULAIRE ET BOUTONS ======== */
+/* -------------------------------------- */
+
+/* Styles partagés pour les entrées */
+input, select {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background: white; /* Par défaut */
+    color: #333;
+    transition: 0.3s ease;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #444;
+}
+
+button {
+    padding: 12px;
+    width: 100%; /* Surcharge la valeur plus bas, mais est bon pour le convertisseur */
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Style du bouton de tri (Monnaies) */
+#sort-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    width: auto; /* Permet au bouton de ne pas prendre toute la largeur */
+    font-size: 16px;
+    background-color: #00aaff;
+    border-radius: 8px;
+}
+
+#sort-btn:hover {
+    background-color: #0088cc;
+}
+
+/* -------------------------------------- */
+/* ======== CONVERTISSEUR (page convertisseur.html) ======== */
+/* -------------------------------------- */
 
 .converter-box {
     display: flex;
@@ -39,35 +145,7 @@ h1 {
     flex-direction: column;
 }
 
-label {
-    margin-bottom: 5px;
-    color: #444;
-}
-
-input, select {
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-
-button {
-    padding: 12px;
-    width: 100%;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-button:hover {
-    background: #0056b3;
-}
-
-/* -------- FLAGS -------- */
-
+/* FLAGS */
 .select-flag-box {
     display: flex;
     align-items: center;
@@ -81,8 +159,7 @@ button:hover {
     border: 1px solid #ccc;
 }
 
-/* -------- LOADING ANIMATION -------- */
-
+/* LOADING ANIMATION */
 .loader {
     border: 5px solid #f3f3f3;
     border-top: 5px solid #007bff;
@@ -103,42 +180,55 @@ button:hover {
     display: none;
 }
 
-/* -------- DARK MODE -------- */
+/* -------------------------------------- */
+/* ======== GALERIE (page monnaies.html) ======== */
+/* -------------------------------------- */
 
-.dark {
-    background: #1f1f1f;
+.gallery {
+    margin-top: 30px;
+    display: grid;
+    /* Répète les colonnes avec une largeur minimale de 180px */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+    gap: 20px;
 }
 
-.dark .container {
-    background: #2b2b2b;
-    color: white;
+.gallery-item { /* Nouveau style pour l'élément complet */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background: #f9f9f9;
 }
 
-.dark h1, .dark label, .dark #result {
-    color: white;
+.gallery-item p {
+    margin-top: 10px;
+    font-weight: bold;
 }
 
-.dark input, .dark select {
-    background: #444;
-    color: white;
-    border: 1px solid #777;
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
 }
 
-.dark button {
-    background: #00aaff;
+.gallery img:hover {
+    transform: scale(1.03); /* Légèrement réduit pour moins de décalage */
 }
 
-.dark button:hover {
-    background: #008ecc;
-}
-
-/* -------- DARK MODE TOGGLE -------- */
+/* -------------------------------------- */
+/* ======== DARK MODE TOGGLE ======== */
+/* -------------------------------------- */
 
 .toggle-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 15px;
+    margin-bottom: 20px;
     gap: 10px;
 }
 
@@ -181,13 +271,67 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-/* -------- RESPONSIVE -------- */
+/* -------------------------------------- */
+/* ======== DARK MODE STYLES (Appliqué à la balise body) ======== */
+/* -------------------------------------- */
+
+.dark {
+    background: #1f1f1f;
+    color: white; /* Changement global du texte */
+}
+
+/* Conteneur et autres éléments de fond */
+.dark .container,
+.dark .gallery-item {
+    background: #2b2b2b;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Texte */
+.dark h1, 
+.dark label, 
+.dark #result,
+.dark .gallery-item p {
+    color: white;
+}
+
+/* Inputs / Selects */
+.dark input, 
+.dark select {
+    background: #444;
+    color: white;
+    border: 1px solid #777;
+}
+
+/* Boutons */
+.dark button {
+    background: #00aaff;
+}
+
+.dark button:hover {
+    background: #008ecc;
+}
+
+/* -------------------------------------- */
+/* ======== RESPONSIVE (MÉDIAS QUERIES) ======== */
+/* -------------------------------------- */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    
+    .nav-links {
+        gap: 15px;
+    }
+}
 
 @media (max-width: 480px) {
     .container {
         padding: 20px;
     }
 
+    /* Convertisseur */
     input, select {
         font-size: 14px;
         padding: 8px;
@@ -201,89 +345,232 @@ input:checked + .slider:before {
         width: 28px;
         height: 20px;
     }
+    
+    /* Galerie */
+     .gallery {
+        /* Permet une seule colonne si l'écran est très petit */
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+    }
+}
+/* Définir le conteneur du titre */
+.hero h1 {
+    width: 0; /* Commence avec une largeur zéro (caché) */
+    overflow: hidden; /* Cache le texte qui dépasse */
+    white-space: nowrap; /* Force le texte à rester sur une seule ligne */
+    margin: 0 auto;
+    border-right: 0.15em solid orange; /* Le curseur clignotant */
+    animation: 
+        typing 4s steps(40, end) forwards, /* L'animation d'écriture */
+        blink-caret 0.75s step-end infinite; /* L'animation du curseur */
 }
 
-/* ===== NAVBAR ===== */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background-color: #1a1a1a;
+/* Keyframes pour l'animation de l'écriture */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% } /* Le texte apparaît à 100% de la largeur */
 }
 
-.navbar .logo {
-    color: white;
-    font-size: 22px;
+/* Keyframes pour l'animation du curseur clignotant */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+}
+/*////////////////////////////////////////////////////2*/
+/* Style pour le résultat de conversion */
+#result {
+    text-align: center;
+    font-size: 24px;
     font-weight: bold;
+    margin-top: 20px;
+    opacity: 0; /* Commence caché */
+    transform: translateY(10px); /* Commence légèrement en dessous */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Transition douce */
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
+/* Classe pour forcer l'apparition et l'animation */
+#result.show {
+    opacity: 1; /* Apparaît */
+    transform: translateY(0); /* Glisse à sa position normale */
 }
 
-.nav-links li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.nav-links li a:hover {
+/* Ajoutons aussi un style pour le mode sombre */
+.dark #result {
     color: #00aaff;
 }
+/* -------------------------------------- */
+/* ======== SECTION VIDÉO (page index.html) ======== */
+/* -------------------------------------- */
+.video-section {
+    max-width: 800px; /* Limite la largeur de la section vidéo */
+    margin-top: 50px; /* Espace au-dessus de la vidéo */
+    margin-bottom: 50px; /* Espace en dessous */
+}
+
+.video-section h2 {
+    margin-bottom: 25px;
+    color: #333; /* Couleur du titre de la section */
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio d'aspect 16:9 (hauteur / largeur) */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* Ombre plus prononcée */
+    background: black; /* Fond noir pour éviter un flash blanc */
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* Supprime la bordure par défaut de l'iframe */
+}
+
+/* Styles pour le mode sombre */
+.dark .video-section h2 {
+    color: white;
+}
+/*//////////////////////////////////////////////AJOUT*/
+
+/* Animation de rebond rapide pour les drapeaux */
+@keyframes flag-flash {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Classe pour appliquer l'animation */
+.flag.flash {
+    animation: flag-flash 0.3s ease-out; /* Durée très courte pour un effet "flash" */
+}
+/*////////////////////////////////////////////AJOUT*/
+
+/* -------------------------------------- */
+/* ======== SECTION VIDÉO (page index.html) ======== */
+/* -------------------------------------- */
+.video-section {
+    max-width: 800px; /* Limite la largeur de la section vidéo */
+    margin-top: 50px; /* Espace au-dessus de la vidéo */
+    margin-bottom: 50px; /* Espace en dessous */
+}
+
+.video-section h2 {
+    margin-bottom: 25px;
+    color: #333; /* Couleur du titre de la section */
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio d'aspect 16:9 (hauteur / largeur) */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* Ombre plus prononcée */
+    background: black; /* Fond noir pour éviter un flash blanc */
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* Supprime la bordure par défaut de l'iframe */
+}
+
+/* Styles pour le mode sombre */
+.dark .video-section h2 {
+    color: white;
+}
+/*/////////////////////////////////////////////////////////////////*/
+/* Styles pour rendre la vidéo responsive */
+.video-section {
+    max-width: 800px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    background: black;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Styles pour le mode sombre */
+.dark .video-section h2 {
+    color: white;
+}
 
 
-/* ------ Conteneur ------- */
+/*////////////////////////////////*/
+/* Pour que la vidéo locale remplisse bien son conteneur */
+.local-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Évite les bandes noires si possible */
+    border-radius: 10px;
+}
+
+/*////////////////////////////////*/
 .container {
     width: 90%;
-    max-width: 1000px;
     margin: 40px auto;
+    padding: 25px 30px;
+    border-radius: 12px;
+    background: white;
+    text-align: center;
+    transition: 0.3s ease;
+    
+    /* MODIFICATION ICI : Une ombre plus douce et une fine bordure dorée */
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+    border-top: 4px solid #d4af37; /* Couleur Or */
+}
+
+/*///////////////////////////////////*/
+
+/* Transformation du header en bannière "Hero" */
+.hero {
+    /* Lien vers une image d'exemple (remplacez par la vôtre si vous voulez) */
+    background-image: url('money.jpg');
+    /* Pour que l'image couvre tout l'espace sans se déformer */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Ajoute un filtre sombre par-dessus l'image pour que le texte reste lisible */
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+
+    /* Espacement interne */
+    padding: 100px 20px;
+    
+    /* Change la couleur du texte en blanc pour le contraste */
+    color: white;
     text-align: center;
 }
 
-/* ------ Galerie ------- */
-.gallery {
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 20px;
-}
-
-.gallery img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-}
-
-/* ------ Dropdown ------- */
-select {
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-
-
-#sort-btn {
-    margin-top: 15px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #00aaff;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    transition: 0.3s;
-}
-
-#sort-btn:hover {
-    background-color: #0088cc;
+/* IMPORTANT : On doit forcer la couleur blanche sur le H1 et le P dans le hero */
+.hero h1.animate-typing, 
+.hero p {
+    color: white !important;
 }
