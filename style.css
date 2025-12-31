@@ -1,28 +1,20 @@
-/* -------- BASIC STYLES & RESET -------- */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* ========================================= */
+/* 1. RESET & STYLES GLOBAUX                 */
+/* ========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: Arial, sans-serif;
-    /* La couleur de fond par défaut est claire */
-    background: #f3f3f3; 
-    color: #333; /* Couleur de texte par défaut */
+    background: #f3f3f3;
+    color: #333;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #333;
-}
+h1 { text-align: center; margin-bottom: 25px; color: #333; }
 
-/* -------------------------------------- */
-/* ======== BARRE DE NAVIGATION (NAVBAR) ======== */
-/* -------------------------------------- */
+/* ========================================= */
+/* 2. NAVBAR                                 */
+/* ========================================= */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -32,17 +24,8 @@ h1 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navbar .logo {
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
+.navbar .logo { color: white; font-size: 22px; font-weight: bold; }
+.nav-links { list-style: none; display: flex; gap: 25px; }
 
 .nav-links li a {
     color: white;
@@ -52,486 +35,14 @@ h1 {
     padding-bottom: 2px;
 }
 
-.nav-links li a:hover,
-.nav-links li a.active { /* Style pour la page active */
+.nav-links li a:hover, .nav-links li a.active {
     color: #00aaff;
     border-bottom: 2px solid #00aaff;
 }
 
-/* -------------------------------------- */
-/* ======== CONTENEURS GÉNÉRAUX ======== */
-/* -------------------------------------- */
-
-.container {
-    /* Style général pour les conteneurs (utilisé à la fois pour le convertisseur et la galerie) */
-    width: 90%;
-    margin: 40px auto; 
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
-    background: white; /* Couleur de fond par défaut */
-    text-align: center; /* Utilisé dans la page Monnaies */
-    transition: 0.3s ease;
-}
-
-/* Style spécifique pour le conteneur du convertisseur (plus petit) */
-#page-converter .container { 
-    max-width: 450px;
-    margin-top: 60px; /* Un peu plus d'espace en haut */
-}
-
-/* -------------------------------------- */
-/* ======== ÉLÉMENTS DE FORMULAIRE ET BOUTONS ======== */
-/* -------------------------------------- */
-
-/* Styles partagés pour les entrées */
-input, select {
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    background: white; /* Par défaut */
-    color: #333;
-    transition: 0.3s ease;
-}
-
-label {
-    margin-bottom: 5px;
-    color: #444;
-}
-
-button {
-    padding: 12px;
-    width: 100%; /* Surcharge la valeur plus bas, mais est bon pour le convertisseur */
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background: #0056b3;
-}
-
-/* Style du bouton de tri (Monnaies) */
-#sort-btn {
-    margin-top: 15px;
-    padding: 10px 20px;
-    width: auto; /* Permet au bouton de ne pas prendre toute la largeur */
-    font-size: 16px;
-    background-color: #00aaff;
-    border-radius: 8px;
-}
-
-#sort-btn:hover {
-    background-color: #0088cc;
-}
-
-/* -------------------------------------- */
-/* ======== CONVERTISSEUR (page convertisseur.html) ======== */
-/* -------------------------------------- */
-
-.converter-box {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-}
-
-/* FLAGS */
-.select-flag-box {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.flag {
-    width: 32px;
-    height: 24px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-}
-
-/* LOADING ANIMATION */
-.loader {
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #007bff;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    margin: 15px auto;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.hidden {
-    display: none;
-}
-
-/* -------------------------------------- */
-/* ======== GALERIE (page monnaies.html) ======== */
-/* -------------------------------------- */
-
-.gallery {
-    margin-top: 30px;
-    display: grid;
-    /* Répète les colonnes avec une largeur minimale de 180px */
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
-    gap: 20px;
-}
-
-.gallery-item { /* Nouveau style pour l'élément complet */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    background: #f9f9f9;
-}
-
-.gallery-item p {
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-.gallery img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
-}
-
-.gallery img:hover {
-    transform: scale(1.03); /* Légèrement réduit pour moins de décalage */
-}
-
-/* -------------------------------------- */
-/* ======== DARK MODE TOGGLE ======== */
-/* -------------------------------------- */
-
-.toggle-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;
-    margin-bottom: 20px;
-    gap: 10px;
-}
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 24px;
-}
-
-.switch input { display: none; }
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    background-color: #ccc;
-    border-radius: 34px;
-    top: 0; left: 0;
-    right: 0; bottom: 0;
-    transition: 0.4s;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 18px;
-    width: 18px;
-    left: 3px;
-    bottom: 3px;
-    background-color: white;
-    border-radius: 50%;
-    transition: 0.4s;
-}
-
-input:checked + .slider {
-    background-color: #007bff;
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
-
-/* -------------------------------------- */
-/* ======== DARK MODE STYLES (Appliqué à la balise body) ======== */
-/* -------------------------------------- */
-
-.dark {
-    background: #1f1f1f;
-    color: white; /* Changement global du texte */
-}
-
-/* Conteneur et autres éléments de fond */
-.dark .container,
-.dark .gallery-item {
-    background: #2b2b2b;
-    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
-}
-
-/* Texte */
-.dark h1, 
-.dark label, 
-.dark #result,
-.dark .gallery-item p {
-    color: white;
-}
-
-/* Inputs / Selects */
-.dark input, 
-.dark select {
-    background: #444;
-    color: white;
-    border: 1px solid #777;
-}
-
-/* Boutons */
-.dark button {
-    background: #00aaff;
-}
-
-.dark button:hover {
-    background: #008ecc;
-}
-
-/* -------------------------------------- */
-/* ======== RESPONSIVE (MÉDIAS QUERIES) ======== */
-/* -------------------------------------- */
-
-@media (max-width: 768px) {
-    .navbar {
-        padding: 15px 20px;
-    }
-    
-    .nav-links {
-        gap: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 20px;
-    }
-
-    /* Convertisseur */
-    input, select {
-        font-size: 14px;
-        padding: 8px;
-    }
-
-    button {
-        font-size: 16px;
-    }
-
-    .flag {
-        width: 28px;
-        height: 20px;
-    }
-    
-    /* Galerie */
-     .gallery {
-        /* Permet une seule colonne si l'écran est très petit */
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
-    }
-}
-/* Définir le conteneur du titre */
-.hero h1 {
-    width: 0; /* Commence avec une largeur zéro (caché) */
-    overflow: hidden; /* Cache le texte qui dépasse */
-    white-space: nowrap; /* Force le texte à rester sur une seule ligne */
-    margin: 0 auto;
-    border-right: 0.15em solid orange; /* Le curseur clignotant */
-    animation: 
-        typing 4s steps(40, end) forwards, /* L'animation d'écriture */
-        blink-caret 0.75s step-end infinite; /* L'animation du curseur */
-}
-
-/* Keyframes pour l'animation de l'écriture */
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% } /* Le texte apparaît à 100% de la largeur */
-}
-
-/* Keyframes pour l'animation du curseur clignotant */
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange; }
-}
-/*////////////////////////////////////////////////////2*/
-/* Style pour le résultat de conversion */
-#result {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 20px;
-    opacity: 0; /* Commence caché */
-    transform: translateY(10px); /* Commence légèrement en dessous */
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Transition douce */
-}
-
-/* Classe pour forcer l'apparition et l'animation */
-#result.show {
-    opacity: 1; /* Apparaît */
-    transform: translateY(0); /* Glisse à sa position normale */
-}
-
-/* Ajoutons aussi un style pour le mode sombre */
-.dark #result {
-    color: #00aaff;
-}
-/* -------------------------------------- */
-/* ======== SECTION VIDÉO (page index.html) ======== */
-/* -------------------------------------- */
-.video-section {
-    max-width: 800px; /* Limite la largeur de la section vidéo */
-    margin-top: 50px; /* Espace au-dessus de la vidéo */
-    margin-bottom: 50px; /* Espace en dessous */
-}
-
-.video-section h2 {
-    margin-bottom: 25px;
-    color: #333; /* Couleur du titre de la section */
-}
-
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* Ratio d'aspect 16:9 (hauteur / largeur) */
-    height: 0;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* Ombre plus prononcée */
-    background: black; /* Fond noir pour éviter un flash blanc */
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none; /* Supprime la bordure par défaut de l'iframe */
-}
-
-/* Styles pour le mode sombre */
-.dark .video-section h2 {
-    color: white;
-}
-/*//////////////////////////////////////////////AJOUT*/
-
-/* Animation de rebond rapide pour les drapeaux */
-@keyframes flag-flash {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.7; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-/* Classe pour appliquer l'animation */
-.flag.flash {
-    animation: flag-flash 0.3s ease-out; /* Durée très courte pour un effet "flash" */
-}
-/*////////////////////////////////////////////AJOUT*/
-
-/* -------------------------------------- */
-/* ======== SECTION VIDÉO (page index.html) ======== */
-/* -------------------------------------- */
-.video-section {
-    max-width: 800px; /* Limite la largeur de la section vidéo */
-    margin-top: 50px; /* Espace au-dessus de la vidéo */
-    margin-bottom: 50px; /* Espace en dessous */
-}
-
-.video-section h2 {
-    margin-bottom: 25px;
-    color: #333; /* Couleur du titre de la section */
-}
-
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* Ratio d'aspect 16:9 (hauteur / largeur) */
-    height: 0;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* Ombre plus prononcée */
-    background: black; /* Fond noir pour éviter un flash blanc */
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none; /* Supprime la bordure par défaut de l'iframe */
-}
-
-/* Styles pour le mode sombre */
-.dark .video-section h2 {
-    color: white;
-}
-/*/////////////////////////////////////////////////////////////////*/
-/* Styles pour rendre la vidéo responsive */
-.video-section {
-    max-width: 800px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* Ratio 16:9 */
-    height: 0;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-    background: black;
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* Styles pour le mode sombre */
-.dark .video-section h2 {
-    color: white;
-}
-
-
-/*////////////////////////////////*/
-/* Pour que la vidéo locale remplisse bien son conteneur */
-.local-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Évite les bandes noires si possible */
-    border-radius: 10px;
-}
-
-/*////////////////////////////////*/
+/* ========================================= */
+/* 3. CONTENEURS & HERO                      */
+/* ========================================= */
 .container {
     width: 90%;
     margin: 40px auto;
@@ -540,122 +51,115 @@ input:checked + .slider:before {
     background: white;
     text-align: center;
     transition: 0.3s ease;
-    
-    /* MODIFICATION ICI : Une ombre plus douce et une fine bordure dorée */
     box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
-    border-top: 4px solid #d4af37; /* Couleur Or */
+    border-top: 4px solid #d4af37;
 }
 
-/*///////////////////////////////////*/
+/* Spécifique page convertisseur */
+#page-converter .container { max-width: 450px; margin-top: 60px; }
 
-/* Transformation du header en bannière "Hero" */
+/* Hero Banner */
 .hero {
-    /* Lien vers une image d'exemple (remplacez par la vôtre si vous voulez) */
-    background-image: url('money.jpg');
-    /* Pour que l'image couvre tout l'espace sans se déformer */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    
-    /* Ajoute un filtre sombre par-dessus l'image pour que le texte reste lisible */
-    background-color: rgba(0, 0, 0, 0.6);
-    background-blend-mode: overlay;
-
-    /* Espacement interne */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('money.jpg') center/cover no-repeat;
     padding: 100px 20px;
-    
-    /* Change la couleur du texte en blanc pour le contraste */
     color: white;
     text-align: center;
 }
 
-/* IMPORTANT : On doit forcer la couleur blanche sur le H1 et le P dans le hero */
-.hero h1.animate-typing, 
-.hero p {
+/* Animation Titre Hero */
+.hero h1 {
+    width: 0; overflow: hidden; white-space: nowrap; margin: 0 auto;
+    border-right: 0.15em solid orange;
+    animation: typing 4s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
     color: white !important;
 }
+.hero p { color: white !important; }
 
+@keyframes typing { from { width: 0 } to { width: 100% } }
+@keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: orange; } }
 
-/* ===================== */
-/* STYLE DU FOOTER       */
-/* ===================== */
-.main-footer {
-    background-color: #1a1a1a; /* Fond très sombre */
-    color: #ffffff;
-    text-align: center;
-    padding: 30px 0;
-    margin-top: 60px; /* Espace avec la vidéo */
-    border-top: 3px solid #d4af37; /* Ligne dorée en haut */
+/* ========================================= */
+/* 4. FORMULAIRES & BOUTONS                  */
+/* ========================================= */
+input, select {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background: white;
+    color: #333;
+    transition: 0.3s ease;
 }
 
-.footer-content p {
-    margin: 5px 0; /* Espace réduit entre les lignes */
-    font-size: 0.95em;
-    letter-spacing: 0.5px;
+button {
+    padding: 12px;
+    width: 100%;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s;
 }
+button:hover { background: #0056b3; }
 
-.footer-content strong {
-    color: #d4af37; /* Applique la couleur dorée à tout ce qui est en gras */
-    font-weight: bold;
+/* Bouton spécifique pour le tri */
+#sort-btn {
+    margin-top: 15px; padding: 10px 20px; width: auto;
+    background-color: #00aaff; border-radius: 8px; font-size: 16px;
 }
+#sort-btn:hover { background-color: #0088cc; }
 
-/* --- Adaptation Mode Sombre --- */
-.dark .main-footer {
-    background-color: #000000;
-    border-top-color: #00aaff; /* La ligne devient bleue en mode sombre */
+/* ========================================= */
+/* 5. CONVERTISSEUR (Spécifique)             */
+/* ========================================= */
+.converter-box { display: flex; flex-direction: column; gap: 15px; }
+.select-flag-box { display: flex; align-items: center; gap: 10px; }
+.flag { width: 32px; height: 24px; border-radius: 3px; border: 1px solid #ccc; }
+
+/* Animation Drapeau */
+@keyframes flag-flash {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
 }
+.flag.flash { animation: flag-flash 0.3s ease-out; }
 
+/* Loader */
+.loader {
+    border: 5px solid #f3f3f3; border-top: 5px solid #007bff;
+    border-radius: 50%; width: 40px; height: 40px; margin: 15px auto;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.hidden { display: none; }
 
+/* Résultat */
+#result {
+    text-align: center; font-size: 24px; font-weight: bold; margin-top: 20px;
+    opacity: 0; transform: translateY(10px); transition: all 0.5s ease-out;
+}
+#result.show { opacity: 1; transform: translateY(0); }
 
-/* Style de la Galerie */
-.galerie-grid {
+/* ========================================= */
+/* 6. GALERIE & CARTES MONNAIES              */
+/* ========================================= */
+.galerie-grid, .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     padding: 20px;
+    margin-top: 30px;
 }
 
-.monnaie-card {
-    background: white;
-    border-radius: 10px;
+/* Carte unifiée */
+.monnaie-card, .gallery-item {
+    background: white; /* ou #f9f9f9 selon pref */
+    border-radius: 12px;
     padding: 15px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: 0.3s;
-}
-
-.monnaie-card:hover {
-    transform: translateY(-5px);
-    border: 1px solid #d4af37;
-}
-
-.monnaie-card img {
-    width: 100%;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #eee;
-}
-
-.dark .monnaie-card {
-    background: #222;
-    color: white;
-}
-
-.galerie-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-#continentFilter {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #d4af37;
-}
-
-
-
-/* Animation "Pièce de monnaie" sur les cartes */
-.monnaie-card {
     position: relative;
     overflow: hidden;
     border: 2px solid transparent;
@@ -663,49 +167,105 @@ input:checked + .slider:before {
     perspective: 1000px;
 }
 
-.monnaie-card:hover {
+.monnaie-card img, .gallery img {
+    width: 100%; height: auto; border-radius: 5px;
+    margin-bottom: 10px; border: 1px solid #eee;
+}
+
+/* Animation survol Carte */
+.monnaie-card:hover, .gallery-item:hover {
     transform: rotateY(10deg) scale(1.05);
-    border-color: #d4af37; /* Couleur Or */
+    border-color: #d4af37;
     box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
 }
 
-/* Effet de reflet brillant qui passe sur la carte */
+/* Effet brillant */
 .coin-effect {
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    width: 200%;
-    height: 200%;
+    position: absolute; top: -100%; left: -100%; width: 200%; height: 200%;
     background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: 0.5s;
-    pointer-events: none;
+    transition: 0.5s; pointer-events: none;
 }
+.monnaie-card:hover .coin-effect { top: 0; left: 0; }
 
-.monnaie-card:hover .coin-effect {
-    top: 0;
-    left: 0;
-}
-
-/* Style du bouton Musée */
+/* Lien Musée */
 .museum-link {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 8px 15px;
-    background-color: #d4af37;
-    color: black;
-    text-decoration: none;
-    border-radius: 20px;
-    font-size: 0.8em;
-    font-weight: bold;
-    transition: background 0.3s;
+    display: inline-block; margin-top: 15px; padding: 8px 15px;
+    background-color: #d4af37; color: black; text-decoration: none;
+    border-radius: 20px; font-size: 0.8em; font-weight: bold; transition: background 0.3s;
+}
+.museum-link:hover { background-color: #b8962d; color: white; }
+.museum-link::before { margin-right: 5px; }
+
+/* ========================================= */
+/* 7. VIDÉO                                  */
+/* ========================================= */
+.video-section {
+    max-width: 800px; margin: 50px auto; /* Centré automatiquement */
+}
+.video-section h2 { margin-bottom: 25px; color: #333; }
+
+.video-wrapper {
+    position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+    border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.25); background: black;
+}
+.video-wrapper iframe, .local-video {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; object-fit: cover;
 }
 
-.museum-link:hover {
-    background-color: #b8962d;
+/* ========================================= */
+/* 8. FOOTER                                 */
+/* ========================================= */
+.main-footer {
+    background-color: #1a1a1a; color: #ffffff; text-align: center;
+    padding: 30px 0; margin-top: 60px; border-top: 3px solid #d4af37;
+}
+.footer-content p { margin: 5px 0; font-size: 0.95em; letter-spacing: 0.5px; }
+.footer-content strong { color: #d4af37; font-weight: bold; }
+
+/* ========================================= */
+/* 9. DARK MODE (Toggle & Styles)            */
+/* ========================================= */
+/* Switch */
+.toggle-container { display: flex; justify-content: center; align-items: center; margin: 15px 0 20px; gap: 10px; }
+.switch { position: relative; display: inline-block; width: 50px; height: 24px; }
+.switch input { display: none; }
+.slider {
+    position: absolute; cursor: pointer; background-color: #ccc; border-radius: 34px;
+    top: 0; left: 0; right: 0; bottom: 0; transition: 0.4s;
+}
+.slider:before {
+    position: absolute; content: ""; height: 18px; width: 18px;
+    left: 3px; bottom: 3px; background-color: white; border-radius: 50%; transition: 0.4s;
+}
+input:checked + .slider { background-color: #007bff; }
+input:checked + .slider:before { transform: translateX(26px); }
+
+/* Thème Sombre */
+.dark { background: #1f1f1f; color: white; }
+.dark .container, .dark .monnaie-card, .dark .gallery-item {
+    background: #2b2b2b;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
     color: white;
 }
+.dark h1, .dark label, .dark .video-section h2, .dark .gallery-item p { color: white; }
+.dark input, .dark select { background: #444; color: white; border: 1px solid #777; }
+.dark button { background: #00aaff; }
+.dark button:hover { background: #008ecc; }
+.dark #result { color: #00aaff; }
+.dark .main-footer { background-color: #000000; border-top-color: #00aaff; }
 
-/* Icône Musée avant le texte */
-.museum-link::before {
-    margin-right: 5px;
+/* ========================================= */
+/* 10. RESPONSIVE                            */
+/* ========================================= */
+@media (max-width: 768px) {
+    .navbar { padding: 15px 20px; }
+    .nav-links { gap: 15px; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 20px; }
+    input, select { font-size: 14px; padding: 8px; }
+    button { font-size: 16px; }
+    .flag { width: 28px; height: 20px; }
+    .galerie-grid, .gallery { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
 }
